@@ -4,8 +4,6 @@ import numpy as np
 import pandas as pd
 import datetime
 
-
-
 data = wfdb.rdsamp("14046")
 tabela = data[0]
 dicionario = data[1]
@@ -23,8 +21,7 @@ for i in range(int(sig_len)):
 
 tabela_panda = pd.DataFrame(tabela, columns = ['ECG1(mv)','ECG2(mv)'])
 tabela_panda.insert(0,"hh:mm:ss",tempo,True)
-
-
+tabela_panda.to_csv('Jeff.csv',index=False)
 
 # segundos = tabela.size*(1/128)/2
 # minutos = segundos/60
